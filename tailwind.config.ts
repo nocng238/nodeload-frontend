@@ -73,6 +73,11 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    variants:{
+      extends:{
+        outline: ['focus'],
+      }
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config

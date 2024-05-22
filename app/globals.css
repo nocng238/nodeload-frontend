@@ -74,3 +74,10 @@
       @apply bg-background text-foreground;
     }
   }
+  input:focus {
+    @apply outline-none;
+  }
+  
+  textarea:focus {
+    @apply outline-none;
+  }
