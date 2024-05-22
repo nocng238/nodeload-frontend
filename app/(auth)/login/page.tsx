@@ -1,5 +1,6 @@
 import LoginForm from '@/app/(auth)/login/login-form'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function LoginPage() {
   return (
@@ -20,7 +21,6 @@ export default function LoginPage() {
             src="/google.svg"
             alt=""
             className="h-6 w-6 object-cover"
-            objectFit="cover"
             width={24}
             height={24}
           />
@@ -31,9 +31,9 @@ export default function LoginPage() {
 
       <p className="mt-8">
         Need an account?{" "}
-        <a href="#" className="text-blue-500 hover:text-blue-700 font-semibold">
+        <Link href="/register" className="text-blue-500 hover:text-blue-700 font-semibold">
           Create an account
-        </a>
+        </Link>
       </p>
     </div>
   )
