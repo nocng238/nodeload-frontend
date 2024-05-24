@@ -2,7 +2,7 @@ import z from 'zod'
 
 export const RegisterBody = z
   .object({
-    name: z.string().trim().min(2).max(256),
+    username: z.string().trim().min(2).max(256),
     email: z.string().email(),
     password: z.string().min(6).max(100),
     confirmPassword: z.string().min(6).max(100)
@@ -12,7 +12,7 @@ export const RegisterBody = z
     if (confirmPassword !== password) {
       ctx.addIssue({
         code: 'custom',
-        message: 'Mật khẩu không khớp',
+        message: "Password does not match",
         path: ['confirmPassword']
       })
     }
@@ -26,7 +26,7 @@ export const RegisterRes = z.object({
     expiresAt: z.string(),
     account: z.object({
       id: z.number(),
-      name: z.string(),
+      username: z.string(),
       email: z.string()
     })
   }),
@@ -53,3 +53,11 @@ export type SlideSessionBodyType = z.TypeOf<typeof SlideSessionBody>
 export const SlideSessionRes = RegisterRes
 
 export type SlideSessionResType = z.TypeOf<typeof SlideSessionRes>
+
+export const OtpInput = z.object({
+  pin: z.string().min(6, {
+    message: "Your one-time password must be 6 characters.",
+  }),
+})
+
+export type OtpInputType = z.TypeOf<typeof OtpInput>
